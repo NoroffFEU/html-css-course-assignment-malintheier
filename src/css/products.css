@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     min-height: 700px;
-    background: url(../assets/images/jackets.jpg) no-repeat;
+    background-image: url("jackets.jpg") no-repeat;
     background-size: cover;
     background-position: center;
 }
