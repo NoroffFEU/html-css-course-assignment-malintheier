@@ -1,0 +1,178 @@
+.home {
+    display: flex;
+    align-items: center;
+    min-height: 1000px;
+    background: url(../assets/images/start_kopi_2.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.home h1 {
+    font-family: "Archivo Black", sans-serif;
+    font-size: 62px;
+    color: white;
+    text-align: center;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.home button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #BE884C;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    color: white;
+    font-size: 18px;
+    border: none;
+    padding: 12px 60px;
+    cursor: pointer;
+    border-radius: 40px;
+}
+
+.home button:hover {
+    font-weight: 700;
+}
+
+.news {
+    width: 100%;
+    height: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.news h2 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+
+.products {
+    width: 90%;
+    margin: auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 120px;
+}
+
+.products_col {
+    text-align: left;
+    line-height: 30px;
+}
+
+.products_col img {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.products_col h3 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.products_col p {
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+}
+
+.btn {
+    width: 100%;
+    height: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn button {
+    background-color: #BE884C;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    color: white;
+    font-size: 18px;
+    border: none;
+    padding: 12px 60px;
+    cursor: pointer;
+    border-radius: 40px;
+}
+
+.btn button:hover {
+    font-weight: 700;
+}
+
+@media (max-width: 991px) {
+    .home {
+        min-height: 800px;  
+    }
+    .home h1 {
+        font-size: 44px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .home button {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .products {
+        flex-wrap: wrap;
+        padding: 5%;
+    }
+}
+
+@media (max-width: 768px) {
+    .home {
+        min-height: 700px;  
+    }
+    .home h1 {
+        font-size: 36px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .home button {
+        position: absolute;
+        top: 35%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }  
+
+    .products {
+        flex-wrap: wrap;
+        padding: 0 5%;
+    }
+    
+}
+
+@media (max-width: 450px) {
+    .home {
+        min-height: 600px;  
+    }
+    .home h1 {
+        font-size: 34px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .home button {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }  
+
+    .products {
+        flex-wrap: wrap;
+        padding: 0 5%;
+    }
+}
