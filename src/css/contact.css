@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     min-height: 700px;
-    background: url(../assets/images/about.jpg) no-repeat;
+    background: url(/assets/images/about.jpg) no-repeat;
     background-size: cover;
     background-position: center;
 }
@@ -48,13 +48,14 @@
 input {
     background-color: #fff;
     font-family: "Open Sans", sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     margin-bottom: 40px;
     width: 49%;
     padding: 10px;
     border-radius: 40px;
-    border-color: #E4E4E4;
+    border-color: #c4c4c4;
     border-width: 2px;
+    border-style: solid;
 }
 
 #first_name {
@@ -73,23 +74,23 @@ input {
 textarea {
     background-color: #fff;
     font-family: "Open Sans", sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     margin-bottom: 60px;
     width: 100%;
     padding: 10px;
     border-radius: 25px;
-    border-color: #E4E4E4;
+    border-color: #c4c4c4;
     border-width: 2px;
 }
 
-input:focus-within {
+input:focus {
     outline: none;
-    background-color: #EFEFEF;
+    border-color: #1F1F1F;
 }
 
-textarea:focus-within {
+textarea:focus {
     outline: none;
-    background-color: #EFEFEF;
+    border-color: #1F1F1F;
 }
 
 .contact_form button {
@@ -108,6 +109,13 @@ textarea:focus-within {
 
 .contact_form button:hover {
     font-weight: 700;
+}
+
+@media (min-width: 1950px) {
+
+    .contact_form {
+        max-width: 1920px;
+    }
 }
 
 @media (max-width: 768px) {

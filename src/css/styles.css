@@ -175,7 +175,25 @@ hr {
 
 
 
+@media (min-width: 1950px) {
 
+  .footer_1 {
+      max-width: 1920px;
+  }
+
+  .footer_links {
+    max-width: 1920px;
+  }
+
+  .footer_pay_sm {
+    max-width: 1920px;
+  }
+
+  hr {
+    max-width: 1920px;
+  }
+
+}
 
 
 @media (max-width: 991px) {
