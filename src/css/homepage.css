@@ -1,10 +1,12 @@
 .home {
     display: flex;
     align-items: center;
+    justify-content: center;
     min-height: 1000px;
     background: url(/assets/images/start_kopi_2.jpg) no-repeat;
     background-size: cover;
     background-position: center;
+    flex-wrap: wrap;
 }
 
 .home h1 {
@@ -12,17 +14,12 @@
     font-size: 62px;
     color: white;
     text-align: center;
-    position: relative;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    width: 100%;
+    padding-top: 15%;
 }
 
 
 .home button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     background-color: #BE884C;
     font-family: "Open Sans", sans-serif;
     font-weight: 600;
@@ -32,6 +29,8 @@
     padding: 12px 60px;
     cursor: pointer;
     border-radius: 40px;
+    text-align: center;
+    margin-bottom: 50%;
 }
 
 .home button:hover {
@@ -65,11 +64,32 @@
 .products_col {
     text-align: left;
     line-height: 30px;
+    position: relative;
+}
+
+.products_col:hover {
+    transform: scale(1.1);
 }
 
 .products_col img {
     width: 100%;
     margin-bottom: 20px;
+}
+
+.products_col button {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    z-index: 2;
+    background-color: #EFEFEF;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    border: none;
+    padding: 8px 18px;
+    cursor: pointer;
+    border-radius: 40px;
+    text-align: center;
 }
 
 .products_col h3 {
@@ -118,17 +138,9 @@
     .home {
         min-height: 800px;  
     }
+
     .home h1 {
         font-size: 44px;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    .home button {
-        position: absolute;
-        top: 40%;
-        left: 50%;
-        transform: translate(-50%, -50%);
     }
 
     .products {
@@ -141,18 +153,11 @@
     .home {
         min-height: 700px;  
     }
+
     .home h1 {
         font-size: 36px;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    .home button {
-        position: absolute;
-        top: 35%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }  
+        padding-top: 25%;
+    } 
 
     .products {
         flex-wrap: wrap;
@@ -165,18 +170,11 @@
     .home {
         min-height: 600px;  
     }
+
     .home h1 {
         font-size: 34px;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        padding-top: 30%;
     }
-
-    .home button {
-        position: absolute;
-        top: 40%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }  
 
     .products {
         flex-wrap: wrap;

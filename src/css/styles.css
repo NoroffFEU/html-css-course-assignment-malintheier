@@ -157,10 +157,18 @@ header .menu {
   align-self: center;
 }
 
+.pay img {
+  padding-right: 15%;
+}
+
 .sm {
   width: 10%;
   display: flex;
   align-self: center;
+}
+
+.sm img {
+  padding-left: 15%;
 }
 
 
@@ -315,7 +323,7 @@ hr {
   }
 
   .pay {
-      width: 35%;
+      width: 40%;
       display: flex;
       align-self: center;
       padding-bottom: 20px;
@@ -326,7 +334,7 @@ hr {
   }
   
   .sm {
-      width: 35%;
+      width: 40%;
       display: flex;
       align-self: center;
   }
@@ -397,7 +405,7 @@ hr {
   }
 
   .pay {
-      width: 35%;
+      width: 45%;
       display: flex;
       align-self: center;
       padding-bottom: 20px;
@@ -408,7 +416,7 @@ hr {
   }
   
   .sm {
-      width: 35%;
+      width: 45%;
       display: flex;
       align-self: center;
   }
