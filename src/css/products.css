@@ -93,6 +93,15 @@
     font-size: 14px;
 }
 
+.products_col p .old {
+    text-decoration-line: line-through;
+}
+
+.products_col p .new {
+    color: red;
+    font-weight: 700;
+}
+
 .products .sale {
     width: 300px;
     margin-bottom: 20px;
