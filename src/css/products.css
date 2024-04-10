@@ -72,6 +72,7 @@
     z-index: 2;
     background-color: #EFEFEF;
     font-family: "Open Sans", sans-serif;
+    color: black;
     font-weight: 600;
     font-size: 12px;
     border: none;
@@ -240,14 +241,19 @@
         font-family: "Open Sans", sans-serif;
         font-size: 14px;
         padding: 30px;
+        line-height: 26px;
     }
 
     .products {
         gap: 60px;
     }
 
+    .products_col {
+        width: 110px;
+    }
+
     .products_col img {
-        width: 125px;
+        width: 110px;
     }
 
     .products .sale {
