@@ -19,7 +19,7 @@
 
 .info {
     width: 45%;
-    height: 25%;
+    height: 20%;
     background-color: #EFEFEF;
     position: absolute;
     top: 600px;
@@ -144,6 +144,10 @@
     .products {
         max-width: 1500px;
     }
+
+    .info {
+        width: 30%;
+    }
 }
 
 @media (max-width: 991px) {
@@ -157,7 +161,7 @@
 
     .info {
         width: 80%;
-        height: 25%;
+        height: 20%;
         top: 600px;
     }
 
@@ -199,13 +203,14 @@
 
     .info {
         width: 80%;
-        height: 25%;
+        height: 18%;
         top: 530px;
     }
 
     .info p {
         font-family: "Open Sans", sans-serif;
         font-size: 14px;
+        line-height: 30px;
     }
 
     .products {
@@ -246,7 +251,7 @@
 
     .info {
         width: 90%;
-        height: 25%;
+        height: 18%;
         top: 450px;
     }
 
