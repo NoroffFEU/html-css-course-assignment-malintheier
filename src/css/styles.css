@@ -5,15 +5,433 @@
 @import url("./_variables.css");
 /* Feel free to add as many of these imports as you need */
 
-body {
-  color: var(--color-primary);
-  background-color: var(--color-secondary);
+a {
+  cursor: pointer;
+  text-decoration: none;
 }
 
-.centered {
+ul {
+  text-decoration: none;
+  list-style: none;
+}
+
+header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: #fff;
+  padding: 10px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+
+}
+
+header .logo {
+  display: flex;
+}
+
+header .logo img {
+  height: 56px;
+  align-self: center;
+}
+
+header .navbar a {
+  font-size: 20px;
+  padding: 0 36px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  color: black;
+}
+
+header .navbar a:hover {
+  font-weight: 800;
+}
+
+header .icons a {
+  font-size: 32px;
+  color: black;
+  margin-left: 20px;
+}
+
+header #toggler {
+  display: none;
+}
+
+header .menu {
+  font-size: 48px;
+  color: black;
+  padding: 80px 24px;
+  cursor: pointer;
+  display: none;
+}
+
+
+
+
+
+
+
+.footer {
+  background-color: #1F1F1F;
+}
+
+.footer_1 {
+  width: 80%;
+  margin: auto;
   display: flex;
   justify-content: center;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  gap: 120px;
+  padding: 60px 0px 60px;
 }
+
+.footer_icons {
+  width: 100%;
+  text-align: center;
+  line-height: 30px;
+}
+
+.footer_icons img {
+  width: 15%;
+  margin-bottom: 10px;
+}
+
+.footer_icons p {
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  text-align: center;
+  color: white;
+}
+
+.footer_icons p span {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  text-align: center;
+  color: #fff;
+}
+
+
+.footer_links {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  gap: 120px;
+  padding: 60px 0px 120px;
+}
+
+.footer_links ul {
+  width: 100%;
+  text-align: left;
+  font-family: "Open Sans", sans-serif;
+  color: white;
+}
+
+.footer_links ul h4 {
+ font-weight: 700;
+ font-size: 18px;
+}
+
+.footer_links ul li a {
+  font-family: "Open Sans", sans-serif;
+  color: white;
+  font-size: 14px;
+}
+
+.footer_pay_sm {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: auto;
+  padding: 20px 0px 20px 0px;
+}
+
+.pay_sm_text {
+  display: none;
+}
+
+.pay {
+  width: 10%;
+  display: flex;
+  align-self: center;
+}
+
+.pay img {
+  padding-right: 15%;
+}
+
+.sm {
+  width: 10%;
+  display: flex;
+  align-self: center;
+}
+
+.sm img {
+  padding-left: 15%;
+}
+
+
+hr {
+  width: 90%;
+  margin: auto;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+
+
+
+
+
+@media (min-width: 1950px) {
+
+  .footer_1 {
+      max-width: 1920px;
+  }
+
+  .footer_links {
+    max-width: 1920px;
+  }
+
+  .footer_pay_sm {
+    max-width: 1920px;
+  }
+
+  hr {
+    max-width: 1920px;
+  }
+
+}
+
+
+@media (max-width: 991px) {
+  header {
+      padding: 20px;
+  }
+
+  header .navbar a {
+      font-size: 18px;
+      padding: 0 24px;
+  }
+
+  header .navbar a:hover {
+      font-weight: 700;
+  }
+
+  header .icons a {
+      font-size: 28px;
+      margin-left: 16px;
+  }
+
+  header .logo img {
+      height: 48px;
+  }
+
+
+
+  .footer_icons img {
+      width: 30%;
+      margin-right: 5%;
+  }
+
+  .footer_icons p {
+      font-size: 14px;
+  }
+  
+  .footer_icons p .span {
+      font-weight: 700;
+      font-size: 16px;
+  } 
+}
+
+@media (max-width: 768px) {
+  header .menu {
+      display: block;
+      font-size: 32px;
+      padding: 0 0;
+  }
+
+  header .navbar {
+      position: absolute;
+      top: 100%; left: 0; right: 0;
+      background: #fff;
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+
+  header #toggler:checked ~ .navbar {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  
+  header .navbar a {
+      margin: 24px;
+      padding: 24px;
+      display: block;
+  }
+
+
+
+  hr {
+      display: none;
+  }
+
+  .footer_icons img {
+      width: 15%;
+      margin-right: 5%;
+  }
+
+  .footer_1 {
+      padding: 60px 0px 60px;
+      flex-wrap: wrap;
+      gap: 30px;
+  }
+
+  .footer_icons {
+      display: flex;
+      flex-direction: row;
+  }
+
+  .footer_icons p {
+      font-size: 14px;
+      text-align: left;
+  }
+  
+  .footer_icons p .span {
+      font-weight: 600;
+      font-size: 18px;
+      text-align: center;
+  }    
+
+  .footer_links {
+      display: none;
+  }
+
+  .footer_pay_sm {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      padding-bottom: 60px;
+  }
+
+  .pay_sm_text {
+      display: flex;
+      align-self: center;
+      color: #fff; 
+      font-family: "Open Sans", sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      padding: 10px 0 10px;
+  }
+
+  .pay {
+      width: 40%;
+      display: flex;
+      align-self: center;
+      padding-bottom: 20px;
+  }
+
+  .pay a {
+      padding: 5px;
+  }
+  
+  .sm {
+      width: 40%;
+      display: flex;
+      align-self: center;
+  }
+
+  .sm a {
+      padding: 5px;
+  }
+  
+}
+
+@media (max-width: 450px) {
+  header .icons a {
+      font-size: 26px;
+      margin-left: 16px;
+  }
+  header .menu {
+      font-size: 26px;
+  }
+  header .logo img {
+      height: 48px;
+  }
+
+
+
+  hr {
+      display: none;
+  }
+
+  .footer_icons img {
+      width: 15%;
+      margin-right: 5%;
+  }
+
+  .footer_1 {
+      padding: 60px 0px 60px;
+      flex-wrap: wrap;
+      gap: 30px;
+  }
+
+  .footer_icons {
+      display: flex;
+      flex-direction: row;
+  }
+
+  .footer_icons p {
+      font-size: 14px;
+      text-align: left;
+  }
+  
+  .footer_icons p .span {
+      font-weight: 600;
+      font-size: 18px;
+      text-align: center;
+  }
+
+  .footer_links {
+      display: none;
+  }
+
+  .pay_sm_text {
+      display: flex;
+      align-self: center;
+      color: #fff; 
+      font-family: "Open Sans", sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      padding: 10px 0 10px;
+  }
+
+  .pay {
+      width: 45%;
+      display: flex;
+      align-self: center;
+      padding-bottom: 20px;
+  }
+
+  .pay a {
+      padding: 5px;
+  }
+  
+  .sm {
+      width: 45%;
+      display: flex;
+      align-self: center;
+  }
+
+  .sm a {
+      padding: 5px;
+  }
+}
+
+
+
+
+
+
+
+
+
+

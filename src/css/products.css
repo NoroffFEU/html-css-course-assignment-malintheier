@@ -1,0 +1,294 @@
+.top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 700px;
+    background: url(/assets/images/jackets.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.top h1 {
+    font-family: "Archivo Black", sans-serif;
+    font-size: 62px;
+    color: white;
+    text-align: center;
+    padding-top: 15%;
+}
+
+
+.info {
+    width: 45%;
+    height: 20%;
+    background-color: #EFEFEF;
+    position: absolute;
+    top: 600px;
+    left: 0%;
+    border-radius: 0 30px 30px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info p {
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 60px;
+    line-height: 35px;
+}
+
+.products {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 120px;
+    max-width: 80%;
+    margin: auto;
+    margin-top: 180px;
+    margin-bottom: 120px;
+}
+
+.products_col {
+    text-align: left;
+    line-height: 30px;
+    position: relative;
+}
+
+.products_col:hover {
+    transform: scale(1.1);
+}
+
+.products_col img {
+    width: 300px;
+    margin-bottom: 20px;
+}
+
+.products_col button {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    z-index: 2;
+    background-color: #EFEFEF;
+    font-family: "Open Sans", sans-serif;
+    color: black;
+    font-weight: 600;
+    font-size: 12px;
+    border: none;
+    padding: 2% 10%;
+    cursor: pointer;
+    border-radius: 40px;
+    text-align: center;
+}
+
+.products_col h3 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.products_col p {
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+}
+
+.products_col p .old {
+    text-decoration-line: line-through;
+}
+
+.products_col p .new {
+    color: red;
+    font-weight: 700;
+}
+
+.products .sale {
+    width: 300px;
+    margin-bottom: 20px;
+    background-color: #0A3641;
+    border-radius: 30px;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.products .sale p {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    color: #fff;
+    line-height: 50px;
+    padding-top: 30px;
+}
+
+.products .sale .span_1 {
+    font-family: "Archivo Black", sans-serif;
+    font-size: 60px;
+    font-weight: 700;
+}
+
+.products .sale .span_2 {
+    font-size: 34px;
+    font-weight: 600;
+}
+
+.products .sale img {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+
+@media (min-width: 1950px) {
+
+    .products {
+        max-width: 1500px;
+    }
+
+    .info {
+        width: 30%;
+    }
+}
+
+@media (max-width: 991px) {
+    .top {
+        min-height: 700px;
+    }
+
+    .top h1 {
+        padding-top: 40%;
+    }
+
+    .info {
+        width: 80%;
+        height: 20%;
+        top: 600px;
+    }
+
+    .info p {
+        line-height: 35px;
+    }
+
+    .products_col img {
+        width: 248px;
+    }
+
+    .products .sale {
+        width: 248px;
+    }
+    
+    .products .sale p {
+        font-size: 14px;
+        line-height: 44px;
+    }
+    
+    .products .sale .span_1 {
+        font-size: 50px;
+    }
+    
+    .products .sale .span_2 {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 768px) {
+    .top {
+        min-height: 600px;
+    }
+
+    .top h1 {
+        padding-top: 50%;
+        font-size: 58px;
+    }
+
+    .info {
+        width: 80%;
+        height: 18%;
+        top: 530px;
+    }
+
+    .info p {
+        font-family: "Open Sans", sans-serif;
+        font-size: 14px;
+        line-height: 30px;
+    }
+
+    .products {
+        gap: 60px;
+    }
+
+    .products_col img {
+        width: 200px;
+    }
+
+    .products .sale {
+        width: 200px;
+    }
+    
+    .products .sale p {
+        font-size: 14px;
+        line-height: 44px;
+    }
+    
+    .products .sale .span_1 {
+        font-size: 40px;
+    }
+    
+    .products .sale .span_2 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 450px) {
+    .top {
+        min-height: 500px;
+    }
+
+    .top h1 {
+        padding-top: 60%;
+        font-size: 48px;
+    }
+
+    .info {
+        width: 90%;
+        height: 18%;
+        top: 450px;
+    }
+
+    .info p {
+        font-family: "Open Sans", sans-serif;
+        font-size: 95%;
+        padding: 38px;
+        line-height: 26px;
+    }
+
+    .products {
+        gap: 60px;
+    }
+
+    .products_col {
+        width: 110px;
+    }
+
+    .products_col img {
+        width: 110px;
+    }
+
+    .products .sale {
+        width: 90%;
+        height: 500px;
+    }
+    
+    .products .sale p {
+        font-size: 16px;
+        line-height: 44px;
+    }
+    
+    .products .sale .span_1 {
+        font-size: 60px;
+    }
+    
+    .products .sale .span_2 {
+        font-size: 34px;
+    }
+}
