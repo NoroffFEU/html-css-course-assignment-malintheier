@@ -102,42 +102,6 @@
     font-weight: 700;
 }
 
-.products .sale {
-    width: 300px;
-    margin-bottom: 20px;
-    background-color: #0A3641;
-    border-radius: 30px;
-    text-align: center;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-end;
-}
-
-.products .sale p {
-    font-family: "Open Sans", sans-serif;
-    font-size: 16px;
-    color: #fff;
-    line-height: 50px;
-    padding-top: 30px;
-}
-
-.products .sale .span_1 {
-    font-family: "Archivo Black", sans-serif;
-    font-size: 60px;
-    font-weight: 700;
-}
-
-.products .sale .span_2 {
-    font-size: 34px;
-    font-weight: 600;
-}
-
-.products .sale img {
-    width: 100%;
-    margin-bottom: 20px;
-}
-
 
 @media (min-width: 1950px) {
 
@@ -172,23 +136,6 @@
     .products_col img {
         width: 248px;
     }
-
-    .products .sale {
-        width: 248px;
-    }
-    
-    .products .sale p {
-        font-size: 14px;
-        line-height: 44px;
-    }
-    
-    .products .sale .span_1 {
-        font-size: 50px;
-    }
-    
-    .products .sale .span_2 {
-        font-size: 28px;
-    }
 }
 
 @media (max-width: 768px) {
@@ -219,23 +166,6 @@
 
     .products_col img {
         width: 200px;
-    }
-
-    .products .sale {
-        width: 200px;
-    }
-    
-    .products .sale p {
-        font-size: 14px;
-        line-height: 44px;
-    }
-    
-    .products .sale .span_1 {
-        font-size: 40px;
-    }
-    
-    .products .sale .span_2 {
-        font-size: 24px;
     }
 }
 
@@ -272,23 +202,5 @@
 
     .products_col img {
         width: 110px;
-    }
-
-    .products .sale {
-        width: 90%;
-        height: 500px;
-    }
-    
-    .products .sale p {
-        font-size: 16px;
-        line-height: 44px;
-    }
-    
-    .products .sale .span_1 {
-        font-size: 60px;
-    }
-    
-    .products .sale .span_2 {
-        font-size: 34px;
     }
 }
