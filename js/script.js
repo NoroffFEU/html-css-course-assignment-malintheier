@@ -64,68 +64,113 @@ const API_BASE_URL = 'https://v2.api.noroff.dev';
 
 
 
-// Hentet produkter fra API
+
 
 const apiUrl = 'https://v2.api.noroff.dev/rainy-days';
 const apiKey = '4af5f64c-f709-4782-8d59-c5436d4ced6b';
 
-// Fetch all products from the API
-fetch(apiUrl, {
-  method: 'GET',
-  headers: {
-    'Authorization': `Bearer ${apiKey}`,
-    'Content-Type': 'application/json',
-  },
-})
 
-.then(response => response.json())
-.then(res => {
-
-    const data =res.data;
-
-    let products = '';
-
-    data.forEach(product => {
-        products += `<div class="item">
-        <img src="${product.image.url}" alt="${product.title}"> 
-        <h2>${product.title}</h2> 
-        <p>${product.price} $</p>
-        </div>`
-    })
-    console.log(products);
-    document.getElementById('products-container').innerHTML = products;
-})
-      
-
-
-// Fetch 3 products from the API
-fetch(apiUrl, {
+function fetchNewsSection() {
+  fetch(apiUrl, {
     method: 'GET',
     headers: {
       'Authorization': `Bearer ${apiKey}`,
       'Content-Type': 'application/json',
     },
   })
-  
-  .then(response => {
-    return response.json();
-  })
-  .then(data => {
-      
+    .then(response => response.json())
+    .then(data => {
+      const limitedProducts = data.data.slice(0, 3);
       let news = '';
 
-      const limitedProducts = data.data.slice(0, 3);
-
       limitedProducts.forEach(product => {
-          news += `<div class="news_section_col">
-          <img src="${product.image.url}" alt="${product.title}"> 
-          <h2>${product.title}</h2> 
-          <p>${product.price} $</p>
-          </div>`
+        news += `<div class="news_section_col">
+          <a href="single_product.html?id=${product.id}">
+            <img src="${product.image.url}" alt="${product.title}">
+            <h2>${product.title}</h2>
+            <p>${product.price} $</p>
+          </a>
+        </div>`;
       });
-      console.log(news);
+
       document.getElementById('news_section').innerHTML = news;
+    })
+    .catch(error => {
+      console.error('Error fetching news:', error);
+      document.getElementById('news_section').innerHTML =
+        '<p>Something went wrong while loading the news.</p>';
+    });
+}
+
+
+let allProducts = [];
+
+function fetchAndDisplayProducts() {
+  fetch(apiUrl, {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${apiKey}`,
+      'Content-Type': 'application/json',
+    },
   })
+    .then(response => response.json())
+    .then(data => {
+      allProducts = data.data;
+      displayProducts('all'); 
+    })
+    .catch(error => {
+      console.error('Error fetching products:', error);
+      document.getElementById('products-container').innerHTML =
+        '<p>Something went wrong while loading products.</p>';
+    });
+}
+
+function displayProducts(gender) {
+  let filteredProducts = allProducts;
+
+  if (gender !== 'all') {
+    filteredProducts = allProducts.filter(product => product.gender === gender);
+  }
+
+  let productsHTML = '';
+  filteredProducts.forEach(product => {
+    productsHTML += `
+      <div class="item">
+        <a href="single_product.html?id=${product.id}">
+          <img src="${product.image.url}" alt="${product.title}">
+          <h2>${product.title}</h2>
+          <p>${product.price} $</p>
+        </a>
+      </div>`;
+  });
+
+  document.getElementById('products-container').innerHTML = productsHTML;
+}
+
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  if (document.getElementById('news_section')) {
+    fetchNewsSection();
+  }
+
+
+  if (document.getElementById('products-container')) {
+    fetchAndDisplayProducts();
+
+    document.getElementById('gender_filter').addEventListener('change', (event) => {
+      const selectedGender = event.target.value;
+      displayProducts(selectedGender);
+    });
+  }
+});
+
+
+
+
+
+
+
 
 
 
