@@ -69,7 +69,7 @@ const API_BASE_URL = 'https://v2.api.noroff.dev';
 const apiUrl = 'https://v2.api.noroff.dev/rainy-days';
 const apiKey = '4af5f64c-f709-4782-8d59-c5436d4ced6b';
 
-// Fetch data from the API
+// Fetch all products from the API
 fetch(apiUrl, {
   method: 'GET',
   headers: {
@@ -80,8 +80,11 @@ fetch(apiUrl, {
 
 .then(response => response.json())
 .then(res => {
+
     const data =res.data;
+
     let products = '';
+
     data.forEach(product => {
         products += `<div class="item">
         <img src="${product.image.url}" alt="${product.title}"> 
@@ -93,6 +96,39 @@ fetch(apiUrl, {
     document.getElementById('products-container').innerHTML = products;
 })
       
+
+
+// Fetch 3 products from the API
+fetch(apiUrl, {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${apiKey}`,
+      'Content-Type': 'application/json',
+    },
+  })
+  
+  .then(response => {
+    return response.json();
+  })
+  .then(data => {
+      
+      let news = '';
+
+      const limitedProducts = data.data.slice(0, 3);
+
+      limitedProducts.forEach(product => {
+          news += `<div class="news_section_col">
+          <img src="${product.image.url}" alt="${product.title}"> 
+          <h2>${product.title}</h2> 
+          <p>${product.price} $</p>
+          </div>`
+      });
+      console.log(news);
+      document.getElementById('news_section').innerHTML = news;
+  })
+
+
+
 
 
 
