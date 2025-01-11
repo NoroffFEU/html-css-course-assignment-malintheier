@@ -168,6 +168,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+function fetchSingleProduct(productId) {
+  fetch(`${apiUrl}/${productId}`, {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${apiKey}`,
+      'Content-Type': 'application/json',
+    },
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`Failed to fetch product details: ${response.status}`);
+    }
+    return response.json();
+  })
+}
+
+
+
+
 
 
 
