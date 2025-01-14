@@ -86,7 +86,7 @@ function fetchNewsSection() {
       limitedProducts.forEach(product => {
         news += `<div class="news_section_col">
           <a href="single_product.html?id=${product.id}">
-            <img src="${product.image.url}" alt="${product.title}">
+            <img src="${product.image.url}" alt="${product.image.alt}">
             <h2>${product.title}</h2>
             <p>${product.price} $</p>
           </a>
@@ -137,7 +137,7 @@ function displayProducts(gender) {
     productsHTML += `
       <div class="item">
         <a href="single_product.html?id=${product.id}">
-          <img src="${product.image.url}" alt="${product.title}">
+          <img src="${product.image.url}" alt="${product.image.alt}">
           <h2>${product.title}</h2>
           <p>${product.price} $</p>
         </a>
@@ -182,25 +182,48 @@ function fetchSingleProduct(productId) {
     }
     return response.json();
   })
-.then(product => {
-  console.log(product);
+.then(responseData => {
+  const data = responseData.data;
+  console.log(data);
+
   const productDetails = `
-  <div class="single_product_container">
-  <img src="${product.image.url}" alt="${product.title}">
-  <h2>${product.title}</h2>
-  <p>${product.price} $</p>
-  <p>${product.description}</p>
-  <p>${product.sizes}</p>
+  <div class="single_product">
+    <img src="${data.image.url}" alt="${data.image.alt}">
+    <h2>${data.title}</h2>
+    <h3>${data.price} $</h3>
+    <p>${data.description}</p>
+    <label for="size_select">Size:</label>
+    <select id="size_select">
+      <option value="">Select size</option>
+    </select>
   </div>
   `;
 
   document.getElementById('single_product_container').innerHTML = productDetails;
+
+  populateSizeDropdown(data.sizes);
+
 })
 .catch(error => {
   console.error('Error fetching product details:', error);
   document.getElementById('single_product_container').innerHTML =
   '<p>Something went wrong. Please try again later.</p>';
 });
+}
+
+function populateSizeDropdown(sizes) {
+  const sizeSelect = document.getElementById('size_select');
+  sizes.forEach(size => {
+    const option = document.createElement('option');
+    option.value = size;
+    option.textContent = size;
+    sizeSelect.appendChild(option);
+  })
+
+  sizeSelect.addEventListener('change', () => {
+    const selectedSize = sizeSelect.value;
+    console.log(`Selected size: ${selectedSize}`);
+  });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
