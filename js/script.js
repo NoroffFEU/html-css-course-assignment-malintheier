@@ -182,8 +182,39 @@ function fetchSingleProduct(productId) {
     }
     return response.json();
   })
+.then(product => {
+  console.log(product);
+  const productDetails = `
+  <div class="single_product_container">
+  <img src="${product.image.url}" alt="${product.title}">
+  <h2>${product.title}</h2>
+  <p>${product.price} $</p>
+  <p>${product.description}</p>
+  <p>${product.sizes}</p>
+  </div>
+  `;
+
+  document.getElementById('single_product_container').innerHTML = productDetails;
+})
+.catch(error => {
+  console.error('Error fetching product details:', error);
+  document.getElementById('single_product_container').innerHTML =
+  '<p>Something went wrong. Please try again later.</p>';
+});
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+  const productDetailsDiv = document.getElementById('single_product_container');
+  if (productDetailsDiv) {
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id');
+    if (productId) {
+      fetchSingleProduct(productId);
+    } else {
+      productDetailsDiv.innerHTML = '<p>Product ID not found.</p>';
+    }
+  }
+});
 
 
 
