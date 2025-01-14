@@ -1,6 +1,7 @@
 #single_product_container {
     display: flex;
     justify-content: center;
+    margin: auto;
     margin-top: 120px;
     margin-bottom: 120px;
 }
