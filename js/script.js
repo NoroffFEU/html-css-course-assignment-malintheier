@@ -103,6 +103,10 @@ function fetchNewsSection() {
 }
 
 
+
+
+
+
 let allProducts = [];
 
 function fetchAndDisplayProducts() {
@@ -168,6 +172,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+let shoppingCart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+
+
 function fetchSingleProduct(productId) {
   fetch(`${apiUrl}/${productId}`, {
     method: 'GET',
@@ -196,12 +203,22 @@ function fetchSingleProduct(productId) {
     <select id="size_select">
       <option value="">Select size</option>
     </select>
+    <button id="add-to-cart-btn">Add to Cart</button>
   </div>
   `;
 
   document.getElementById('single_product_container').innerHTML = productDetails;
 
   populateSizeDropdown(data.sizes);
+
+  document.getElementById('add-to-cart-btn').addEventListener('click', () => {
+    const selectedSize = document.getElementById('size_select').value;
+    if (!selectedSize) {
+      alert('Please select a size before adding to cart.');
+      return;
+    }
+    addToCart(data, selectedSize);
+  });
 
 })
 .catch(error => {
@@ -211,6 +228,7 @@ function fetchSingleProduct(productId) {
 });
 }
 
+
 function populateSizeDropdown(sizes) {
   const sizeSelect = document.getElementById('size_select');
   sizes.forEach(size => {
@@ -218,12 +236,23 @@ function populateSizeDropdown(sizes) {
     option.value = size;
     option.textContent = size;
     sizeSelect.appendChild(option);
-  })
-
-  sizeSelect.addEventListener('change', () => {
-    const selectedSize = sizeSelect.value;
-    console.log(`Selected size: ${selectedSize}`);
   });
+}
+
+function addToCart(product, size) {
+  const cartItem = {
+    id: product.id,
+    title: product.title,
+    price: product.price,
+    size: size,
+    image: product.image.url,
+  };
+
+  shoppingCart.push(cartItem);
+
+  localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
+
+  alert(`${product.title} (Size: ${size}) has been added to your cart!`);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -239,6 +268,83 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const cartItems = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+  const cartContainer = document.getElementById('cart_items');
+
+  if (cartItems.length === 0) {
+    cartContainer.innerHTML = '<p>Your cart is empty!</p>';
+    return;
+  }
+
+  cartItems.forEach((item, index) => {
+    const itemDiv = document.createElement('div');
+    itemDiv.classList.add('cart_item');
+    itemDiv.innerHTML = `
+      <img src="${item.image}" alt="${item.title}" width="100">
+      <h2>${item.title}</h2>
+      <p>Size: ${item.size}</p>
+      <div class="quantity">
+        <button class="decrease_btn" data-index="${index}">-</button>
+        <span id="quantity_${index}">${item.quantity}</span>
+        <button class="increase_btn" data-index="${index}">+</button>
+      </div>
+      <p id="price_${index}">Price: ${(item.price * item.quantity).toFixed(2)} $</p>
+      <button class="remove_btn" data-index="${index}">Remove</button>
+    `;
+    cartContainer.appendChild(itemDiv);
+  });
+
+
+  document.querySelectorAll('.increase_btn').forEach(button => {
+    button.addEventListener('click', (e) => {
+      const index = e.target.getAttribute('data-index');
+      updateQuantity(index, 1);
+    });
+  });
+
+  document.querySelectorAll('.decrease_btn').forEach(button => {
+    button.addEventListener('click', (e) => {
+      const index = e.target.getAttribute('data-index');
+      updateQuantity(index, -1);
+    });
+  });
+
+
+  document.querySelectorAll('.remove_btn').forEach(button => {
+    button.addEventListener('click', (e) => {
+      const index = e.target.getAttribute('data-index');
+      removeFromCart(index);
+    });
+  });
+});
+
+function updateQuantity(index, change) {
+  const cartItems = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+  const item = cartItems[index];
+
+
+  item.quantity = Math.max(1, item.quantity + change);
+
+
+  localStorage.setItem('shoppingCart', JSON.stringify(cartItems));
+
+
+  document.getElementById(`quantity_${index}`).textContent = item.quantity;
+  document.getElementById(`price_${index}`).textContent = `Price: ${(item.price * item.quantity).toFixed(2)} $`;
+}
+
+function removeFromCart(index) {
+  const cartItems = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+  cartItems.splice(index, 1);
+  localStorage.setItem('shoppingCart', JSON.stringify(cartItems));
+  location.reload();
+}
 
 
 

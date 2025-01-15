@@ -6,13 +6,13 @@
     <meta name="description" content="Shop for affordable rain jackets on our site">
     <link rel="stylesheet" href="src/css/_reset.css">
     <link rel="stylesheet" href="src/css/styles.css">
-    <link rel="stylesheet" href="src/css/products.css">
+    <link rel="stylesheet" href="src/css/cart.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <script src="js/script.js" defer></script>
-    <title>Products</title>
+    <title>Shopping Cart</title>
 </head>
 <body>
 
@@ -42,24 +42,10 @@
     
     <main>
 
-        <div class="info">
-            <p>The jackets are mid-range in price and emphasize durability and being suitable for a range of different weather types ensuring you are comfortable whatever adventure you go on</p>
-        </div>
-
-        <section class="top">
-            <h1>JACKETS</h1>
-        </section>
-
-        <div id="filter_dropdown">
-            <label for="gender_filter">Filter:</label>
-            <select id="gender_filter">
-                <option value="all">All</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-            </select>
-        </div>
-
-        <section id="products-container"></section>
+        <h1>Shopping Cart</h1>
+        <div id="cart_items"></div>
+        <h4 id="total_price">Total: $0</h4>
+        <button id="checkout_button">Continue</button>
 
     </main>
 
@@ -134,8 +120,3 @@
 
 </body>
 </html>
-
-
-
-
-
