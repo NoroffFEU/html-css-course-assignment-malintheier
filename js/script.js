@@ -246,6 +246,7 @@ function addToCart(product, size) {
     price: product.price,
     size: size,
     image: product.image.url,
+    quantity: 1,
   };
 
   shoppingCart.push(cartItem);
@@ -337,6 +338,9 @@ function updateQuantity(index, change) {
 
   document.getElementById(`quantity_${index}`).textContent = item.quantity;
   document.getElementById(`price_${index}`).textContent = `Price: ${(item.price * item.quantity).toFixed(2)} $`;
+
+  calculateTotalPrice();
+
 }
 
 function removeFromCart(index) {
@@ -344,7 +348,21 @@ function removeFromCart(index) {
   cartItems.splice(index, 1);
   localStorage.setItem('shoppingCart', JSON.stringify(cartItems));
   location.reload();
+
+  calculateTotalPrice();
+
 }
+
+
+
+function calculateTotalPrice() {
+  const cartItems = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+  const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+  document.getElementById('total_price').textContent = `Total: ${totalPrice.toFixed(2)} $`;
+}
+
+
+calculateTotalPrice();
 
 
 
