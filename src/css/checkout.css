@@ -1,0 +1,57 @@
+.checkout {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    padding-top: 180px;
+    padding-bottom: 180px;
+    margin: auto;
+}
+
+.checkout .material-symbols-outlined {
+    font-size: 240px;
+    font-weight: 400;
+    color: #029011;
+    margin-bottom: 30px;
+}
+
+.checkout h1 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 38px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.checkout p {
+    font-family: "Open Sans", sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.continue_shopping_btn {
+    background-color: #BE884C;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    color: white;
+    font-size: 18px;
+    border: none;
+    padding: 12px 60px;
+    cursor: pointer;
+    border-radius: 40px;
+    text-align: center;
+    margin-top: 70px;
+}
+
+.continue_shopping_btn:hover {
+    font-weight: 700;
+}
+
+@media (min-width: 1950px) {
+
+    .checkout {
+        max-width: 1920px;
+    }
+}
