@@ -1,65 +1,58 @@
 const API_BASE_URL = 'https://v2.api.noroff.dev';
-	
-	async function registerUser(url, data) {
-	  try {
-	    const postData = {
-	      method: 'POST',
-	      headers: {
-	        'Content-Type': 'application/json',
-	      },
-	      body: JSON.stringify(data),
-	    };
-	
-	    const response = await fetch(url, postData);
-	    console.log(response);
-	    const json = await response.json();
-	    console.log(json);
-	    return json;
-	  } catch (error) {
-	    console.log(error);
-	  }
-	}
-	
-	const user = {
-	  name: 'malintheier',
-	  email: 'malhei01980@stud.noroff.no',
-	  password: 'Noroff2002',
-	};
-	
-	registerUser(`${API_BASE_URL}/auth/register`, user);
 
+async function registerUser(url, data) {
+  try {
+    const postData = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    };
 
+    const response = await fetch(url, postData);
+    const json = await response.json();
+    return json;
+  } catch (error) {
+    console.error('Error during registration:', error);
+  }
+}
 
-    const userLogin = {
-        email: 'malhei01980@stud.noroff.no',
-        password: 'Noroff2002',
-      };
-      
-      async function loginUser(url, data) {
-        try {
-          const postData = {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-          };
-          const response = await fetch(url, postData);
-          console.log(response);
-          const json = await response.json();
-          const accessToken = json.accessToken;
-          localStorage.setItem('accessToken', accessToken);
-          console.log(json);
-          return json;
-        } catch (error) {
-          console.log(error);
-        }
-      }
-      
-      loginUser(`${API_BASE_URL}/auth/login`, user);
+const user = {
+  name: 'malintheier',
+  email: 'malhei01980@stud.noroff.no',
+  password: 'Noroff2002',
+};
 
+registerUser(`${API_BASE_URL}/auth/register`, user);
 
+const userLogin = {
+  email: 'malhei01980@stud.noroff.no',
+  password: 'Noroff2002',
+};
 
+async function loginUser(url, data) {
+  try {
+    const postData = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    };
+
+    const response = await fetch(url, postData);
+    const json = await response.json();
+    const accessToken = json.accessToken;
+
+    localStorage.setItem('accessToken', accessToken);
+    return json;
+  } catch (error) {
+    console.error('Error during login:', error);
+  }
+}
+
+loginUser(`${API_BASE_URL}/auth/login`, user);
 
 
 
@@ -69,38 +62,38 @@ const API_BASE_URL = 'https://v2.api.noroff.dev';
 const apiUrl = 'https://v2.api.noroff.dev/rainy-days';
 const apiKey = '4af5f64c-f709-4782-8d59-c5436d4ced6b';
 
-
-function fetchNewsSection() {
-  fetch(apiUrl, {
-    method: 'GET',
-    headers: {
-      'Authorization': `Bearer ${apiKey}`,
-      'Content-Type': 'application/json',
-    },
-  })
-    .then(response => response.json())
-    .then(data => {
-      const limitedProducts = data.data.slice(0, 3);
-      let news = '';
-
-      limitedProducts.forEach(product => {
-        news += `<div class="news_section_col">
-          <a href="single_product.html?id=${product.id}">
-            <img src="${product.image.url}" alt="${product.image.alt}">
-            <h2>${product.title}</h2>
-            <p>${product.price} $</p>
-          </a>
-        </div>`;
-      });
-
-      document.getElementById('news_section').innerHTML = news;
-    })
-    .catch(error => {
-      console.error('Error fetching news:', error);
-      document.getElementById('news_section').innerHTML =
-        '<p>Something went wrong while loading the news.</p>';
+async function fetchNewsSection() {
+  try {
+    const response = await fetch(apiUrl, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+      },
     });
+
+    const data = await response.json();
+    const limitedProducts = data.data.slice(0, 3);
+    let news = '';
+
+    limitedProducts.forEach(product => {
+      news += `<div class="news_section_col">
+        <a href="single_product.html?id=${product.id}">
+          <img src="${product.image.url}" alt="${product.image.alt}">
+          <h2>${product.title}</h2>
+          <p>${product.price} $</p>
+        </a>
+      </div>`;
+    });
+
+    document.getElementById('news_section').innerHTML = news;
+  } catch (error) {
+    console.error('Error fetching news:', error);
+    document.getElementById('news_section').innerHTML =
+      '<p>Something went wrong while loading the news.</p>';
+  }
 }
+
 
 
 
@@ -109,24 +102,22 @@ function fetchNewsSection() {
 
 let allProducts = [];
 
-function fetchAndDisplayProducts() {
-  fetch(apiUrl, {
-    method: 'GET',
-    headers: {
-      'Authorization': `Bearer ${apiKey}`,
-      'Content-Type': 'application/json',
-    },
-  })
-    .then(response => response.json())
-    .then(data => {
-      allProducts = data.data;
-      displayProducts('all'); 
-    })
-    .catch(error => {
-      console.error('Error fetching products:', error);
-      document.getElementById('products-container').innerHTML =
-        '<p>Something went wrong while loading products.</p>';
+async function fetchAndDisplayProducts() {
+  try {
+    const response = await fetch(apiUrl, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+      },
     });
+    const data = await response.json();
+    allProducts = data.data;
+    displayProducts('all');
+  } catch (error) {
+    document.getElementById('products-container').innerHTML =
+      '<p>Something went wrong while loading products.</p>';
+  }
 }
 
 function displayProducts(gender) {
@@ -151,13 +142,10 @@ function displayProducts(gender) {
   document.getElementById('products-container').innerHTML = productsHTML;
 }
 
-
 document.addEventListener('DOMContentLoaded', () => {
-
   if (document.getElementById('news_section')) {
     fetchNewsSection();
   }
-
 
   if (document.getElementById('products-container')) {
     fetchAndDisplayProducts();
@@ -172,61 +160,59 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+
 let shoppingCart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
 
+async function fetchSingleProduct(productId) {
+  try {
+    const response = await fetch(`${apiUrl}/${productId}`, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+      },
+    });
 
-function fetchSingleProduct(productId) {
-  fetch(`${apiUrl}/${productId}`, {
-    method: 'GET',
-    headers: {
-      'Authorization': `Bearer ${apiKey}`,
-      'Content-Type': 'application/json',
-    },
-  })
-  .then(response => {
     if (!response.ok) {
       throw new Error(`Failed to fetch product details: ${response.status}`);
     }
-    return response.json();
-  })
-.then(responseData => {
-  const data = responseData.data;
-  console.log(data);
 
-  const productDetails = `
-  <div class="single_product">
-    <img src="${data.image.url}" alt="${data.image.alt}">
-    <h2>${data.title}</h2>
-    <h3>${data.price} $</h3>
-    <p>${data.description}</p>
-    <label for="size_select">Size:</label>
-    <select id="size_select">
-      <option value="">Select size</option>
-    </select>
-    <button id="add-to-cart-btn">Add to Cart</button>
-  </div>
-  `;
+    const responseData = await response.json();
+    const data = responseData.data;
 
-  document.getElementById('single_product_container').innerHTML = productDetails;
+    const productDetails = `
+    <div class="single_product">
+      <img src="${data.image.url}" alt="${data.image.alt}">
+      <h2>${data.title}</h2>
+      <h3>${data.price} $</h3>
+      <p>${data.description}</p>
+      <label for="size_select">Size:</label>
+      <select id="size_select">
+        <option value="">Select size</option>
+      </select>
+      <button id="add_to_cart_btn">Add to Cart</button>
+    </div>
+    `;
 
-  populateSizeDropdown(data.sizes);
+    document.getElementById('single_product_container').innerHTML = productDetails;
 
-  document.getElementById('add-to-cart-btn').addEventListener('click', () => {
-    const selectedSize = document.getElementById('size_select').value;
-    if (!selectedSize) {
-      alert('Please select a size before adding to cart.');
-      return;
-    }
-    addToCart(data, selectedSize);
-  });
+    populateSizeDropdown(data.sizes);
 
-})
-.catch(error => {
-  console.error('Error fetching product details:', error);
-  document.getElementById('single_product_container').innerHTML =
-  '<p>Something went wrong. Please try again later.</p>';
-});
+    document.getElementById('add_to_cart_btn').addEventListener('click', () => {
+      const selectedSize = document.getElementById('size_select').value;
+      if (!selectedSize) {
+        alert('Please select a size before adding to cart.');
+        return;
+      }
+      addToCart(data, selectedSize);
+    });
+
+  } catch (error) {
+    document.getElementById('single_product_container').innerHTML =
+      '<p>Something went wrong. Please try again later.</p>';
+  }
 }
+
 
 
 function populateSizeDropdown(sizes) {
@@ -272,8 +258,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-
-
 document.addEventListener('DOMContentLoaded', () => {
   const cartItems = JSON.parse(localStorage.getItem('shoppingCart')) || [];
   const cartContainer = document.getElementById('cart_items');
@@ -301,7 +285,6 @@ document.addEventListener('DOMContentLoaded', () => {
     cartContainer.appendChild(itemDiv);
   });
 
-
   document.querySelectorAll('.increase_btn').forEach(button => {
     button.addEventListener('click', (e) => {
       const index = e.target.getAttribute('data-index');
@@ -316,7 +299,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-
   document.querySelectorAll('.remove_btn').forEach(button => {
     button.addEventListener('click', (e) => {
       const index = e.target.getAttribute('data-index');
@@ -329,18 +311,14 @@ function updateQuantity(index, change) {
   const cartItems = JSON.parse(localStorage.getItem('shoppingCart')) || [];
   const item = cartItems[index];
 
-
   item.quantity = Math.max(1, item.quantity + change);
 
-
   localStorage.setItem('shoppingCart', JSON.stringify(cartItems));
-
 
   document.getElementById(`quantity_${index}`).textContent = item.quantity;
   document.getElementById(`price_${index}`).textContent = `Price: ${(item.price * item.quantity).toFixed(2)} $`;
 
   calculateTotalPrice();
-
 }
 
 function removeFromCart(index) {
@@ -350,17 +328,13 @@ function removeFromCart(index) {
   location.reload();
 
   calculateTotalPrice();
-
 }
-
-
 
 function calculateTotalPrice() {
   const cartItems = JSON.parse(localStorage.getItem('shoppingCart')) || [];
   const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
   document.getElementById('total_price').textContent = `Total: ${totalPrice.toFixed(2)} $`;
 }
-
 
 calculateTotalPrice();
 

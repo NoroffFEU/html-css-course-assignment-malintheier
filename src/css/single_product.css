@@ -35,6 +35,23 @@
     width: 50%;
 }
 
+#add_to_cart_btn {
+    background-color: #BE884C;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    color: white;
+    font-size: 18px;
+    border: none;
+    padding: 12px 60px;
+    cursor: pointer;
+    border-radius: 40px;
+    text-align: center;
+}
+
+#add_to_cart_btn:hover {
+    font-weight: 700;
+}
+
 
 @media (min-width: 1950px) {
 
