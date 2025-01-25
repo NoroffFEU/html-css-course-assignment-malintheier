@@ -42,10 +42,83 @@
     
     <main>
 
-        <h1>Shopping Cart</h1>
+        <h1>CART</h1>
+
+        <div class="info">
+            <div class="numbers">
+                <p>1</p>
+            </div>
+            <p class="text">Your bag</p>
+        </div>
+        
         <div id="cart_items"></div>
         <h4 id="total_price">Total: $0</h4>
-        <a href="checkout.html">Continue</a>
+
+        <div class="info">
+            <div class="numbers">
+                <p>2</p>
+            </div>
+            <p class="text">Customer information</p>
+        </div>
+
+        <section class="customer_info">
+            <form>
+                <label for="first_name">First name</label>
+                <input id="first_name" type="text" name="first" required>
+            </form>
+            <form>
+                <label for="last_name">Last name</label>
+                <input id="last_name" type="text" name="last" required>
+            </form>
+            <form>
+                <label for="address">Address</label>
+                <input id="address" type="text" name="address" required>
+            </form>
+            <form>
+                <label for="postal_code">Postal code</label>
+                <input id="postal_code" type="text" name="post" required>
+            </form>
+            <form>
+                <label for="city">City</label>
+                <input id="city" type="text" name="city" required>
+            </form>
+            <form>
+                <label for="email">Email adress</label>
+                <input id="email" type="email" name="email" required>
+            </form>
+            <form>
+                <label for="phone">Phone number</label>
+                <input id="phone" type="tel" name="phone" maxlength="8" required>
+            </form>
+        </section>
+
+        <div class="info">
+            <div class="numbers">
+                <p>3</p>
+            </div>
+            <p class="text">Payment</p>
+        </div>
+
+        <section class="payment">
+            <form>
+                <label for="card_holder">Cradholder name</label>
+                <input id="card_holder" type="text" name="holder" required>
+            </form>
+            <form>
+                <label for="card_number">Card number</label>
+                <input id="card_number" type="text" name="number" required>
+            </form>
+            <form>
+                <label for="exp_date">Expiration date</label>
+                <input id="exp_date" type="text" name="expiration" pattern="(0[1-9]|1[0-2])\/\d{2}" required>
+            </form>
+            <form>
+                <label for="cvc">CVC</label>
+                <input id="cvc" type="text" name="cvc" maxlength="3" required>
+            </form>
+        </section>
+
+        <a class="checkout_btn" href="checkout.html">Continue</a>
 
     </main>
 
