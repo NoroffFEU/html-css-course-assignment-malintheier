@@ -63,6 +63,12 @@ const apiUrl = 'https://v2.api.noroff.dev/rainy-days';
 const apiKey = '4af5f64c-f709-4782-8d59-c5436d4ced6b';
 
 async function fetchNewsSection() {
+  const spinner = document.getElementById('spinner');
+  const newsSection = document.getElementById('news_section');
+
+  spinner.style.display = "block";
+  newsSection.innerHTML = "";
+
   try {
     const response = await fetch(apiUrl, {
       method: 'GET',
@@ -86,13 +92,17 @@ async function fetchNewsSection() {
       </div>`;
     });
 
-    document.getElementById('news_section').innerHTML = news;
+    spinner.style.display = "none";
+
+    newsSection.innerHTML = news;
   } catch (error) {
+    spinner.style.display = "none";
+
     console.error('Error fetching news:', error);
-    document.getElementById('news_section').innerHTML =
-      '<p>Something went wrong while loading the news.</p>';
+    newsSection.innerHTML = '<p>Something went wrong while loading the news.</p>';
   }
 }
+
 
 
 
