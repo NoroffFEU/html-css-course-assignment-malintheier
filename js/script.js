@@ -184,10 +184,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-
 let shoppingCart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
 
 async function fetchSingleProduct(productId) {
+  const spinner = document.getElementById('spinner');
+  const singleProductContainer = document.getElementById('single_product_container');
+
+  spinner.style.display = "block";
+  singleProductContainer.innerHTML = "";
+
   try {
     const response = await fetch(`${apiUrl}/${productId}`, {
       method: 'GET',
@@ -218,7 +223,9 @@ async function fetchSingleProduct(productId) {
     </div>
     `;
 
-    document.getElementById('single_product_container').innerHTML = productDetails;
+    spinner.style.display = "none";
+
+    singleProductContainer.innerHTML = productDetails;
 
     populateSizeDropdown(data.sizes);
 
@@ -232,10 +239,13 @@ async function fetchSingleProduct(productId) {
     });
 
   } catch (error) {
-    document.getElementById('single_product_container').innerHTML =
+    spinner.style.display = "none";
+
+    singleProductContainer.innerHTML =
       '<p>Something went wrong. Please try again later.</p>';
   }
 }
+
 
 
 
