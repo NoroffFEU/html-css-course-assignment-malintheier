@@ -248,18 +248,26 @@ async function fetchSingleProduct(productId) {
 
 
 
-
 function populateSizeDropdown(sizes) {
+  const spinner = document.getElementById('spinner');
   const sizeSelect = document.getElementById('size_select');
+  
+  spinner.style.display = "block";
+  
   sizes.forEach(size => {
     const option = document.createElement('option');
     option.value = size;
     option.textContent = size;
     sizeSelect.appendChild(option);
   });
+
+  spinner.style.display = "none";
 }
 
 function addToCart(product, size) {
+  const spinner = document.getElementById('spinner');
+  spinner.style.display = "block";
+
   const cartItem = {
     id: product.id,
     title: product.title,
@@ -270,54 +278,58 @@ function addToCart(product, size) {
   };
 
   shoppingCart.push(cartItem);
-
   localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
 
+  spinner.style.display = "none";
   alert(`${product.title} (Size: ${size}) has been added to your cart!`);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
   const productDetailsDiv = document.getElementById('single_product_container');
+  const cartContainer = document.getElementById('cart_items');
+
+  const spinner = document.getElementById('spinner');
+  
   if (productDetailsDiv) {
     const urlParams = new URLSearchParams(window.location.search);
     const productId = urlParams.get('id');
+    
     if (productId) {
+      spinner.style.display = "block";
       fetchSingleProduct(productId);
     } else {
       productDetailsDiv.innerHTML = '<p>Product ID not found.</p>';
     }
   }
-});
 
+  if (cartContainer) {
+    spinner.style.display = "block";
+    const cartItems = JSON.parse(localStorage.getItem('shoppingCart')) || [];
 
+    if (cartItems.length === 0) {
+      cartContainer.innerHTML = '<p>Your cart is empty!</p>';
+    } else {
+      cartItems.forEach((item, index) => {
+        const itemDiv = document.createElement('div');
+        itemDiv.classList.add('cart_item');
+        itemDiv.innerHTML = `
+          <img src="${item.image}" alt="${item.title}" width="100">
+          <h2>${item.title}</h2>
+          <p>Size: ${item.size}</p>
+          <div class="quantity">
+            <button class="decrease_btn" data-index="${index}">-</button>
+            <span id="quantity_${index}">${item.quantity}</span>
+            <button class="increase_btn" data-index="${index}">+</button>
+          </div>
+          <p id="price_${index}">Price: ${(item.price * item.quantity).toFixed(2)} $</p>
+          <button class="remove_btn" data-index="${index}">Remove</button>
+        `;
+        cartContainer.appendChild(itemDiv);
+      });
+    }
 
-
-document.addEventListener('DOMContentLoaded', () => {
-  const cartItems = JSON.parse(localStorage.getItem('shoppingCart')) || [];
-  const cartContainer = document.getElementById('cart_items');
-
-  if (cartItems.length === 0) {
-    cartContainer.innerHTML = '<p>Your cart is empty!</p>';
-    return;
+    spinner.style.display = "none";
   }
-
-  cartItems.forEach((item, index) => {
-    const itemDiv = document.createElement('div');
-    itemDiv.classList.add('cart_item');
-    itemDiv.innerHTML = `
-      <img src="${item.image}" alt="${item.title}" width="100">
-      <h2>${item.title}</h2>
-      <p>Size: ${item.size}</p>
-      <div class="quantity">
-        <button class="decrease_btn" data-index="${index}">-</button>
-        <span id="quantity_${index}">${item.quantity}</span>
-        <button class="increase_btn" data-index="${index}">+</button>
-      </div>
-      <p id="price_${index}">Price: ${(item.price * item.quantity).toFixed(2)} $</p>
-      <button class="remove_btn" data-index="${index}">Remove</button>
-    `;
-    cartContainer.appendChild(itemDiv);
-  });
 
   document.querySelectorAll('.increase_btn').forEach(button => {
     button.addEventListener('click', (e) => {
@@ -371,6 +383,7 @@ function calculateTotalPrice() {
 }
 
 calculateTotalPrice();
+
 
 
 
