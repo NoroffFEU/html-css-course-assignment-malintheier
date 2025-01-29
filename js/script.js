@@ -113,6 +113,12 @@ async function fetchNewsSection() {
 let allProducts = [];
 
 async function fetchAndDisplayProducts() {
+  const spinner = document.getElementById('spinner');
+  const productsContainer = document.getElementById('products-container');
+
+  spinner.style.display = "block";
+  productsContainer.innerHTML = "";
+
   try {
     const response = await fetch(apiUrl, {
       method: 'GET',
@@ -121,16 +127,23 @@ async function fetchAndDisplayProducts() {
         'Content-Type': 'application/json',
       },
     });
+
     const data = await response.json();
     allProducts = data.data;
+
+    spinner.style.display = "none";
+
     displayProducts('all');
   } catch (error) {
-    document.getElementById('products-container').innerHTML =
+    spinner.style.display = "none";
+
+    productsContainer.innerHTML =
       '<p>Something went wrong while loading products.</p>';
   }
 }
 
 function displayProducts(gender) {
+  const productsContainer = document.getElementById('products-container');
   let filteredProducts = allProducts;
 
   if (gender !== 'all') {
@@ -149,7 +162,7 @@ function displayProducts(gender) {
       </div>`;
   });
 
-  document.getElementById('products-container').innerHTML = productsHTML;
+  productsContainer.innerHTML = productsHTML;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -166,6 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
 
 
 
