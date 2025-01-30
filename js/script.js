@@ -318,10 +318,15 @@ function removeFromCart(index) {
 function calculateTotalPrice() {
   const cartItems = JSON.parse(localStorage.getItem('shoppingCart')) || [];
   const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
-  document.getElementById('total_price').textContent = `Total: ${totalPrice.toFixed(2)} $`;
+  
+  const totalPriceElement = document.getElementById('total_price');
+  if (totalPriceElement) {
+    totalPriceElement.textContent = `Total: ${totalPrice.toFixed(2)} $`;
+  }
 }
 
 calculateTotalPrice();
+
 
 
 
