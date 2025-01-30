@@ -321,10 +321,6 @@ function calculateTotalPrice() {
   document.getElementById('total_price').textContent = `Total: ${totalPrice.toFixed(2)} $`;
 }
 
-if (window.location.pathname.includes("cart.html")) {
-  calculateTotalPrice();
-}
-
 calculateTotalPrice();
 
 
