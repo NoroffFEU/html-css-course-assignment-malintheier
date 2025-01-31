@@ -149,8 +149,10 @@ async function fetchSingleProduct(productId) {
     const data = responseData.data;
 
     const productDetails = `
-    <div class="single_product">
+    <div class="image">
       <img src="${data.image.url}" alt="${data.image.alt}">
+    </div>
+    <div class="single_product">
       <h2>${data.title}</h2>
       <h3>${data.price} $</h3>
       <p>${data.description}</p>
@@ -159,6 +161,9 @@ async function fetchSingleProduct(productId) {
         <option value="">Select size</option>
       </select>
       <button id="add_to_cart_btn">Add to Cart</button>
+      <p>Free shipping on orders over $100</p>
+      <p>We ship orders within 1-2 business days</p>
+
     </div>
     `;
 
