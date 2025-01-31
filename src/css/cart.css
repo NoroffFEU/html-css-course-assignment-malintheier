@@ -37,8 +37,12 @@ h1 {
     padding-left: 8px;
 }
 
+#cart_items {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
 .cart_item {
-    border: 1px solid #ccc;
     padding: 10px;
     margin-bottom: 10px;
     display: flex;
@@ -46,13 +50,32 @@ h1 {
     align-items: center;
 }
 
+.cart_item h2 {
+    font-family: "Open Sans", sans-serif;
+}
+
+.cart_item p {
+    font-family: "Open Sans", sans-serif;
+}
+
 .quantity {
     display: flex;
     align-items: center;
+    font-family: "Open Sans", sans-serif;
 }
 
 .quantity button {
     margin: 0 5px;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}
+
+.remove_btn {
+    border: none;
+    font-family: "Open Sans", sans-serif;
+    background-color: white;
+    cursor: pointer;
 }
 
 #total_price {
