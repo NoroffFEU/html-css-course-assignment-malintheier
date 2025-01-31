@@ -21,18 +21,36 @@
 
 .single_product h2 {
     width: 50%;
+    font-family: "Open Sans", sans-serif;
+    font-size: 32px;
+    font-weight: 200;
 }
 
 .single_product h3 {
     width: 50%;
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
 }
 
 .single_product p {
     width: 50%;
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
 }
 
 #size_select {
     width: 50%;
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+label {
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
 }
 
 #add_to_cart_btn {
@@ -50,6 +68,10 @@
 
 #add_to_cart_btn:hover {
     font-weight: 700;
+}
+
+.shipping {
+    width: 50%;
 }
 
 
