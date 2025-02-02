@@ -81,3 +81,22 @@ label {
     }
 
 }
+
+@media (max-width: 768px) {
+    #single_product_container {
+        margin-top: 180px;
+        flex-wrap: wrap;
+    }
+
+    .image {
+        width: 100%;
+    }
+
+    .single_product {
+        width: 100%;
+    }
+
+    .single_product h2 {
+        margin-top: 60px;
+    }
+}

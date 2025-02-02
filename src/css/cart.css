@@ -8,12 +8,16 @@ main {
 h1 {
     display: flex;
     justify-content: center;
+    font-family: "Open Sans", sans-serif;
 }
 
 .info {
     display: flex;
     align-items: center;
     padding: 10px 0px 10px 0px;
+    font-family: "Open Sans", sans-serif;
+    margin-bottom: 30px;
+    margin-top: 30px;
 }
 
 .numbers {
@@ -30,7 +34,7 @@ h1 {
     padding-top: 50%;
     padding-bottom: 50%;
     margin-left: 8px;
-    margin-right: 8px;
+    margin-right: 8px;   
 }
 
 .info .text {
@@ -52,16 +56,19 @@ h1 {
 
 .cart_item h2 {
     font-family: "Open Sans", sans-serif;
+    font-weight: 300;
 }
 
 .cart_item p {
     font-family: "Open Sans", sans-serif;
+    font-weight: 400;
 }
 
 .quantity {
     display: flex;
     align-items: center;
     font-family: "Open Sans", sans-serif;
+    font-weight: 700;
 }
 
 .quantity button {
@@ -69,6 +76,7 @@ h1 {
     border: none;
     background-color: white;
     cursor: pointer;
+    font-weight: 400;
 }
 
 .remove_btn {
@@ -76,12 +84,15 @@ h1 {
     font-family: "Open Sans", sans-serif;
     background-color: white;
     cursor: pointer;
+    font-weight: 400;
+    font-style: italic;
 }
 
 #total_price {
     display: flex;
     justify-content: end;
     padding: 20px 0px 20px 0px;
+    font-family: "Open Sans", sans-serif;
 }
 
 form {
@@ -89,6 +100,7 @@ form {
     flex-direction: column;
     justify-content: start;
     flex-wrap: wrap;
+    font-family: "Open Sans", sans-serif;
 }
 
 input {
@@ -120,7 +132,7 @@ input {
     cursor: pointer;
     border-radius: 40px;
     text-align: center;
-    margin-top: 70px;
+    margin-top: 40px;
 }
 
 .checkout_btn:hover {
@@ -132,5 +144,12 @@ input {
 
     main {
         max-width: 1920px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cart_item {
+        flex-direction: column;
+        align-items: start;
     }
 }
