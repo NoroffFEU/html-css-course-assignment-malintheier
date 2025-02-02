@@ -103,6 +103,33 @@ form {
     font-family: "Open Sans", sans-serif;
 }
 
+.name {
+    display: flex;
+    gap: 10px;
+}
+
+.name form {
+    width: 100%;
+}
+
+.place {
+    display: flex;
+    gap: 10px;
+}
+
+.place form {
+    width: 100%;
+}
+
+.card {
+    display: flex;
+    gap: 10px;
+}
+
+.card form {
+    width: 100%;
+}
+
 input {
     background-color: #fff;
     font-family: "Open Sans", sans-serif;
