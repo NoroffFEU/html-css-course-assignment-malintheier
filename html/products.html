@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Discover our rich background history and learn about our journey through time. Explore the stories that shaped us into who we are today.">
-    <link rel="stylesheet" href="src/css/reset.css">
-    <link rel="stylesheet" href="src/css/styles.css">
-    <link rel="stylesheet" href="src/css/about.css">
+    <meta name="description" content="Shop for affordable rain jackets on our site">
+    <link rel="stylesheet" href="../src/css/reset.css">
+    <link rel="stylesheet" href="../src/css/styles.css">
+    <link rel="stylesheet" href="../src/css/products.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-    <title>About</title>
+    <script src="../js/script.js" defer></script>
+    <title>Products</title>
 </head>
 <body>
 
@@ -21,11 +22,11 @@
         <label for="toggler" class="material-symbols-outlined menu">menu</label>
     
         <div class="logo">
-            <a href="index.html"><img src="assets/images/RainyDays_Logo.png" alt="Rainy Days logo"></a>
+            <a href="../index.html"><img src="../assets/images/RainyDays_Logo.png" alt="Rainy Days logo"></a>
         </div>
     
         <nav class="navbar">
-            <a href="index.html">Home</a>
+            <a href="../index.html">Home</a>
             <a href="products.html">Shop</a>
             <a href="about.html">About</a>
             <a href="contact.html">Contact</a>
@@ -41,46 +42,43 @@
     
     <main>
 
-        <h1>ABOUT</h1>
+        <div class="info">
+            <p>The jackets are mid-range in price and emphasize durability and being suitable for a range of different weather types ensuring you are comfortable whatever adventure you go on</p>
+        </div>
 
-        <section class="content">
-
-            <div class="content_box">
-                <img src="assets/images/about_1.jpg" alt="Hikers">
-            </div>
-
-            <div class="content_box">
-                <h2>A century of adventure</h2>
-                <p>Rainy Days has been run by dedicated and passionate people for over 100 years. No other supplier of hiking equipment and technical clothing can match our outdoor and polar history, or our efforts in sharing our experiences with today's outdoor enthusiasts. Since the begining in 1908,  Rainy Days has played a decisive role in American outdoor life for over a century.</p>
-            </div>
-
-            <div class="content_box">
-                <h2>Forward-looking</h2>
-                <p>Today, Rainy Days is a leading player in the development of functional hiking equipment and technical clothing. In close cooperation with our test team of professional polar explorers and adventurers, we develop high-quality equipment. Our unique history and knowledge of nature is the starting point for every single product we make. This has made several of our products test and award winners, both nationally and internationally.</p>
-            </div>
-
-            <div class="content_box">
-                <img src="assets/images/about_2.jpg" alt="Skiing">
-            </div>
-
+        <section class="top">
+            <h1>JACKETS</h1>
         </section>
+
+        <div id="filter_dropdown">
+            <label for="gender_filter">Filter:</label>
+            <select id="gender_filter">
+                <option value="all">All</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+        </div>
+
+        <div id="spinner" class="spinner"></div>
+
+        <section id="products-container"></section>
 
     </main>
 
     <footer class="footer">
         <div class="footer_1">
             <div class="footer_icons">
-                <img src="assets/images/icons8-in-transit-100.png" alt="shipping">
+                <img src="../assets/images/icons8-in-transit-100.png" alt="shipping">
                 <p><span>Free shipping</span><br>Shipping on orders over $99</p>
             </div>
 
             <div class="footer_icons">
-                <img src="assets/images/icons8-delivery-time-100.png" alt="delivery">
+                <img src="../assets/images/icons8-delivery-time-100.png" alt="delivery">
                 <p><span>Fast delivery</span><br>Ship orders within 1-2 business days</p>
             </div>
 
             <div class="footer_icons">
-                <img src="assets/images/icons8-approved-delivery-100.png" alt="return">
+                <img src="../assets/images/icons8-approved-delivery-100.png" alt="return">
                 <p><span>Free return</span><br>We offer 30 days open returns</p>
             </div>
 
@@ -119,18 +117,18 @@
         <div class="footer_pay_sm">
             <p class="pay_sm_text">Easy and secure payment</p>
             <div class="pay">
-                <a href="#"><img src="assets/images/paypal.png" alt="YouTube"></a>
-                <a href="#"><img src="assets/images/mastercard.png" alt="Twitter"></a>
-                <a href="#"><img src="assets/images/visa.png" alt="Facebook"></a>
-                <a href="#"><img src="assets/images/american.png" alt="Instagram"></a>
+                <a href="#"><img src="../assets/images/paypal.png" alt="YouTube"></a>
+                <a href="#"><img src="../assets/images/mastercard.png" alt="Twitter"></a>
+                <a href="#"><img src="../assets/images/visa.png" alt="Facebook"></a>
+                <a href="#"><img src="../assets/images/american.png" alt="Instagram"></a>
             </div>
 
             <p class="pay_sm_text">Follow us on social media</p>
             <div class="sm">
-                <a href="#"><img src="assets/images/icons8-youtube-480.png" alt="YouTube"></a>
-                <a href="#"><img src="assets/images/icons8-twitter-480.png" alt="Twitter"></a>
-                <a href="#"><img src="assets/images/icons8-facebook-480.png" alt="Facebook"></a>
-                <a href="#"><img src="assets/images/icons8-instagram-480.png" alt="Instagram"></a>
+                <a href="#"><img src="../assets/images/icons8-youtube-480.png" alt="YouTube"></a>
+                <a href="#"><img src="../assets/images/icons8-twitter-480.png" alt="Twitter"></a>
+                <a href="#"><img src="../assets/images/icons8-facebook-480.png" alt="Facebook"></a>
+                <a href="#"><img src="../assets/images/icons8-instagram-480.png" alt="Instagram"></a>
             </div>
         </div>
     </footer>
@@ -138,3 +136,8 @@
 
 </body>
 </html>
+
+
+
+
+
