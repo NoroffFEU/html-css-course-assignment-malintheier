@@ -140,7 +140,7 @@ header .menu {
   color: white;
 }
 
-.footer_links ul p {
+.footer_links ul li {
  font-weight: 700;
  font-size: 18px;
 }
@@ -149,6 +149,7 @@ header .menu {
   font-family: "Open Sans", sans-serif;
   color: white;
   font-size: 14px;
+  font-weight: 400;
 }
 
 .footer_pay_sm {
