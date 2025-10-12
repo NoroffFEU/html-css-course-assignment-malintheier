@@ -1,27 +1,48 @@
-# Rainy Days
+# 🌧️ Rainy Days
 
-Rainy Days is a responsive e-commerce website for a fictional brand specializing in high-quality rainwear. Built with HTML, CSS, and JavaScript, the site allows users to browse products, view detailed item pages, and experience a clean, user-friendly shopping interface. The project focuses on layout, accessibility, and basic interactivity.
+<img width="2272" height="1266" alt="image" src="https://github.com/user-attachments/assets/792e3ff7-f913-438e-86f4-57e0c2dc577d" />
 
-## Features
 
-- Product Listings – Browse a selection of rain jackets with images, prices, and short descriptions
+A responsive e-commerce website for a fictional brand specializing in premium rainwear.
 
-- Product Detail Pages – View individual product information with larger images and extended descriptions
 
-- Filter by Gender – Users can filter products based on gender categories
+## 📘 Description
 
-- Responsive Design – Optimized for mobile, tablet, and desktop devices
+Rainy Days is a frontend project built to simulate a clean and accessible shopping experience. It focuses on layout structure, responsive design, and basic interactivity using vanilla technologies.
 
-- Basic Cart UI (Static) – Visual cart icon and layout for future shopping functionality
+- Product listings with images, prices, and short descriptions  
+- Individual product detail pages with extended information  
+- Gender-based product filtering  
+- Responsive design for mobile, tablet, and desktop  
+- Dynamic cart 
+- Modular CSS for consistent styling and easy maintenance  
 
-- Clean Styling – Modular CSS for consistent design and easy maintenance
 
-## Technologies
+## 🛠️ Built With
 
-- JavaScript
-- HTML
-- CSS
+- HTML  
+- CSS  
+- JavaScript  
 
-## Author
 
-@malintheier
+## 🤝 Contributing
+Contributions are welcome! Here's how to get involved:
+
+- Fork the repository
+- Create a new branch for your changes
+- Submit a pull request for review
+
+
+## 📬 Contact
+Feel free to reach out:
+
+- Email: malintheier@gmail.com
+- LinkedIn: www.linkedin.com/in/malin-trøbråten-heier-92b21722b
+
+
+## 📄 License
+This project is not currently licensed. You may use or adapt it freely for personal or educational purposes.
+
+
+## 🙌 Acknowledgments
+Thanks to Noroff and course resources for guidance and inspiration during development.
