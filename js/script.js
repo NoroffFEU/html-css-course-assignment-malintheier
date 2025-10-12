@@ -23,7 +23,7 @@ async function fetchNewsSection() {
 
     limitedProducts.forEach(product => {
       news += `<div class="news_section_col">
-        <a href="single_product.html?id=${product.id}">
+        <a href="../html/single_product.html?id=${product.id}">
           <img src="${product.image.url}" alt="${product.image.alt}">
           <h2>${product.title}</h2>
           <p>${product.price} $</p>
@@ -89,7 +89,7 @@ function displayProducts(gender) {
   filteredProducts.forEach(product => {
     productsHTML += `
       <div class="item">
-        <a href="single_product.html?id=${product.id}">
+        <a href="../html/single_product.html?id=${product.id}">
           <img src="${product.image.url}" alt="${product.image.alt}">
           <h2>${product.title}</h2>
           <p>${product.price} $</p>
