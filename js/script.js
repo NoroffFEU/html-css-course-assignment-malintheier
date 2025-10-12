@@ -45,10 +45,6 @@ async function fetchNewsSection() {
 
 
 
-
-
-
-
 let allProducts = [];
 
 async function fetchAndDisplayProducts() {
@@ -118,7 +114,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
-
 
 
 

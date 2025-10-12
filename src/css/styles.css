@@ -116,14 +116,13 @@ header .menu {
   color: white;
 }
 
-.footer_icons p span {
+.footer_icons .strong {
   font-family: "Open Sans", sans-serif;
   font-weight: 700;
   font-size: 18px;
   text-align: center;
   color: #fff;
 }
-
 
 .footer_links {
   width: 80%;
@@ -240,8 +239,6 @@ hr {
       height: 48px;
   }
 
-
-
   .footer_icons img {
       width: 30%;
       margin-right: 5%;
@@ -251,7 +248,7 @@ hr {
       font-size: 14px;
   }
   
-  .footer_icons p .span {
+  .footer_icons .strong {
       font-weight: 700;
       font-size: 16px;
   } 
@@ -280,8 +277,6 @@ hr {
       padding: 24px;
       display: block;
   }
-
-
 
   hr {
       display: none;
@@ -370,8 +365,6 @@ hr {
       height: 48px;
   }
 
-
-
   hr {
       display: none;
   }
@@ -397,7 +390,7 @@ hr {
       text-align: left;
   }
   
-  .footer_icons p .span {
+  .footer_icons .strong {
       font-weight: 600;
       font-size: 18px;
       text-align: center;
